@@ -15,11 +15,11 @@ Maze Reader::Read(const std::string& filename) {
         maze.height_ >= Maze::kMinHeight && maze.height_ <= Maze::kMaxHeight) {
       for (std::size_t i = 0; i < maze.height_; i++) {
         for (std::size_t j = 0; j < maze.width_; j++)
-          file >> maze.right_walls_[i][j];
+          file >> maze.right_walls_[j][i];
       }
       for (std::size_t i = 0; i < maze.height_; i++) {
         for (std::size_t j = 0; j < maze.width_; j++)
-          file >> maze.bottom_walls_[i][j];
+          file >> maze.bottom_walls_[j][i];
       }
     } else {
       throw std::runtime_error("ошибка чтения");

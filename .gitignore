@@ -49,3 +49,12 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Custom
+.DS_Store
+.vscode
+result_file
+build
+*.txt
+*.bin
+*.bak

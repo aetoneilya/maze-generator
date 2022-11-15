@@ -14,7 +14,7 @@ Cave Reader::Read(const std::string& filename) {
     if (cave.width_ >= Cave::kMinWidth && cave.width_ <= Cave::kMaxWidth &&
         cave.height_ >= Cave::kMinHeight && cave.height_ <= Cave::kMaxHeight) {
       for (std::size_t i = 0; i < cave.height_; i++) {
-        for (std::size_t j = 0; j < cave.width_; j++) file >> cave.cave_[i][j];
+        for (std::size_t j = 0; j < cave.width_; j++) file >> cave.cave_[j][i];
       }
     } else {
       throw std::runtime_error("ошибка чтения");

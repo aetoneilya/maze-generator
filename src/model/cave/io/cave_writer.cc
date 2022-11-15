@@ -5,7 +5,7 @@ namespace s21 {
 namespace cave {
 
 void Writer::Write(const Cave& cave) {
-  std::ofstream file(GenerateFilename(cave), std::ofstream::app);
+  std::ofstream file(GenerateFilename(cave));
   if (file.is_open()) {
     file.clear();
 
@@ -13,8 +13,8 @@ void Writer::Write(const Cave& cave) {
 
     for (std::size_t i = 0; i < cave.height_; i++) {
       for (std::size_t j = 0; j < cave.width_ - 1; j++)
-        file << cave.cave_[i][j] << ' ';
-      file << cave.cave_[i][cave.width_ - 1] << std::endl;
+        file << cave.cave_[j][i] << ' ';
+      file << cave.cave_[cave.width_ - 1][i] << std::endl;
     }
 
     file.close();

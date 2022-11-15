@@ -5,7 +5,7 @@ namespace s21 {
 namespace maze {
 
 void Writer::Write(const Maze& maze) {
-  std::ofstream file(GenerateFilename(maze), std::ofstream::app);
+  std::ofstream file(GenerateFilename(maze));
   if (file.is_open()) {
     file.clear();
 
@@ -13,14 +13,14 @@ void Writer::Write(const Maze& maze) {
 
     for (std::size_t i = 0; i < maze.height_; i++) {
       for (std::size_t j = 0; j < maze.width_ - 1; j++)
-        file << maze.right_walls_[i][j] << ' ';
-      file << maze.right_walls_[i][maze.width_ - 1] << std::endl;
+        file << maze.right_walls_[j][i] << ' ';
+      file << maze.right_walls_[maze.width_ - 1][i] << std::endl;
     }
     file << std::endl;
     for (std::size_t i = 0; i < maze.height_; i++) {
       for (std::size_t j = 0; j < maze.width_ - 1; j++)
-        file << maze.bottom_walls_[i][j] << ' ';
-      file << maze.bottom_walls_[i][maze.width_ - 1] << std::endl;
+        file << maze.bottom_walls_[j][i] << ' ';
+      file << maze.bottom_walls_[maze.width_ - 1][i] << std::endl;
     }
 
     file.close();
